@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'contact', to: 'html_pages#contact'
   # now have users controller
   get 'signup', to: 'users#new'
+  resources :users
 end
