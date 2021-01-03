@@ -1,0 +1,16 @@
+<!-- class in the header are css classes -->
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <!-- div separates our page into sections -->
+  <div class="container">
+    <!-- First argument is the name of the link. Second is the url. id is the css label (optional) -->
+    <%= link_to "Orbit Application", root_path, id: "logo" %>
+    <nav>
+      <!-- ul => unordered list  li => list item -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Help", help_path %></li>
+        <li><%= link_to "Login", '#' %></li>
+      </ul>
+    </nav>
+  </div>
+</header>

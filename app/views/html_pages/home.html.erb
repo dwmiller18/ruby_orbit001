@@ -1,5 +1,11 @@
 <% provide(:title, 'Home') %>
 
-<h1>Orbit Home Page</h1>
-<p>This is the template <b>Home Page</b> for our Orbit Feedback Application</p>
+<div class="center jumbotron">
+  <h1>Welcome to Orbit</h1>
+  <h2>This is the home page of the Orbit Application. You can find the codebase for this application at
+    <a href="https://github.com/dwmiller18/ruby_orbit001">My Github Account.</a>
+  </h2>
+
+  <%= link_to "Create an account", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
 
