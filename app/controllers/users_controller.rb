@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @snapshots =@user.snapshots.paginate(page: params[:page])
   end
 
   def create
@@ -49,13 +50,6 @@ class UsersController < ApplicationController
   end
 
   private
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please Log In"
-        redirect_to login_url
-      end
-    end
 
     # Returns a version of the params hash with only the permitted attributes.
     # This avoids someone accessing a part of the site we don't want them to.
@@ -63,12 +57,12 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
-  end
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
 
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
-  end
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
 end
